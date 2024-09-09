@@ -1,6 +1,7 @@
 const Mentor = require('../models/mentor.model');
 const Student = require('../models/student.model');
 
+// Function to get data from the database
 const getData = async (idProp, mode) => {
     console.log(idProp);
     let res;
@@ -32,6 +33,8 @@ const getData = async (idProp, mode) => {
     return res;
 };
 
+// Controller functions
+// Function to create a new mentor
 exports.createMentor = async (req, res) => {
     try {
         const { id, name, expertise } = req.body;
@@ -43,6 +46,7 @@ exports.createMentor = async (req, res) => {
     }
 };
 
+//  Function to create a new student
 exports.createStudent = async (req, res) => {
     try {
         const { id, name, age } = req.body;
@@ -54,6 +58,7 @@ exports.createStudent = async (req, res) => {
     }
 };
 
+// Function to assign a students to a mentor
 exports.assignStudentsToMentor = async (req, res) => {
     try {
         const { mentorId, studentIds } = req.body;
@@ -77,6 +82,7 @@ exports.assignStudentsToMentor = async (req, res) => {
     }
 };
 
+// Function to change the mentor of a student
 exports.changeMentorForStudent = async (req, res) => {
     try {
         const { studentId, newMentorId } = req.body;
@@ -115,6 +121,7 @@ exports.changeMentorForStudent = async (req, res) => {
     }
 };
 
+// Function to get all students on a specific mentor
 exports.getStudentsForMentor = async (req, res) => {
     try {
         const { mentorId } = req.params;
@@ -131,6 +138,7 @@ exports.getStudentsForMentor = async (req, res) => {
     }
 };
 
+// Function to get the previous mentor of a student
 exports.getPreviousMentorForStudent = async (req, res) => {
     try {
         const { studentId } = req.params;

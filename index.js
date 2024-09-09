@@ -29,6 +29,7 @@ const connectDB = async () => {
 
 connectDB();
 
+// Routes
 app.get('/', (req, res) => {
     res.send(`Service mentor and student management is running on ${port}`);
 })
